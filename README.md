@@ -44,7 +44,7 @@ That's it. You will have a server running on `localhost:3000` that serves the JS
 
 For this challenge, it is important to work iteratively, one feature at a time, before moving on to the next. You should **prioritize making code that works over attempting all of the deliverables.**
 
-### Step 1 - Display All Beer Names
+<!-- ### Step 1 - Display All Beer Names
 
 When the page loads, I should see a list of all of the beer names retrieved from the API on the left hand side of the screen. The API endpoint we need to retrieve all the beers is a conventional RESTful route
 
@@ -62,7 +62,7 @@ When the page loads, I should see a list of all of the beer names retrieved from
   <li class="list-group-item">Beer title 2</li>
   /* etc... */
 </ul>
-```
+``` -->
 
 ### Step 2 - Display Single Beer Details
 
