@@ -6,7 +6,7 @@ const beerDetail = document.querySelector("#beer-detail")
 fetch(BEERS_URL)
   .then(r => r.json())
   .then(beersObject => {
-    console.log(beersObject)
+    // console.log(beersObject)
     beersObject.forEach(beer => {
       listGroup.innerHTML += `
           <li class="list-group-item" id=${beer.id}> ${beer.name}</li>
@@ -30,9 +30,7 @@ listGroup.addEventListener("click", event => {
         <img src="${beerObj.image_url}">
         <h3>${beerObj.tagline}</h3>
         <textarea>${beerObj.description}</textarea>
-        <button id="edit-beer" class="btn btn-info">
-          Save
-        </button>
+        <button id="edit-beer" class="btn btn-info">Save</button>
         `
 //DELI-2
 
@@ -40,7 +38,7 @@ listGroup.addEventListener("click", event => {
       const editBeer = document.querySelector('#edit-beer')
       // console.log(editBeer)
       editBeer.addEventListener('click', event => {
-        console.log(event.target)
+        // console.log(event.target)
         let targetValue = event.target.previousElementSibling.value
         fetch(BEER_URL, {
             method: "PATCH",
