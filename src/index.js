@@ -5,22 +5,17 @@ const beerDetail = document.querySelector("#beer-detail")
 //DELI-1
 fetch(BEERS_URL)
   .then(r => r.json())
-  .then(beersObject => {
-    // console.log(beersObject)
+  .then(beersObject => {// console.log(beersObject)
     beersObject.forEach(beer => {
       listGroup.innerHTML += `
           <li class="list-group-item" id=${beer.id}> ${beer.name}</li>
           `
   })
 })//FETCH list-of-beer and append to DOM, DELI-1
-
-
 //DELI-2
-listGroup.addEventListener("click", event => {
-  // console.log(event.target)
+listGroup.addEventListener("click", event => {// console.log(event.target)
   let targetId = event.target.id
   const BEER_URL = `http://localhost:3000/beers/${targetId}`
-
   fetch(BEER_URL)
     .then(r => r.json())
     .then(beerObj => {
@@ -35,10 +30,8 @@ listGroup.addEventListener("click", event => {
 //DELI-2
 
 //DELI-3
-      const editBeer = document.querySelector('#edit-beer')
-      // console.log(editBeer)
-      editBeer.addEventListener('click', event => {
-        // console.log(event.target)
+      const editBeer = document.querySelector('#edit-beer')// console.log(editBeer)
+      editBeer.addEventListener('click', event => {// console.log(event.target)
         let targetValue = event.target.previousElementSibling.value
         fetch(BEER_URL, {
             method: "PATCH",
@@ -49,9 +42,23 @@ listGroup.addEventListener("click", event => {
             body: JSON.stringify({
               description: targetValue
             })
-          }).then(r => r.json())
-          // .then(console.log)
-        // debugger
-      })
+        }).then(r => r.json())// .then(console.log) debugger
+      })//DELI-3
     })
   })
+
+
+  //trying to add on-keyup-enter for save button
+  //
+  // document.getElementById("#edit-button")
+  //     .addEventListener("keyup", function(event) {
+  //     event.preventDefault();
+  //     if (event.keyCode === 13) {
+  //         document.getElementById("edit-button").click();
+  //     }
+  // });
+  //
+  // function buttonCode()
+  // {
+  //   alert("Button code executed.");
+  // }
