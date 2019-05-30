@@ -4,7 +4,6 @@
 const allBeer = 'http://localhost:3000/beers'
 const beerList = document.querySelector('#list-group')
 const beerDetial = document.querySelector('#beer-detail')
-const beerArray = []
 
 //render all beer list
 fetch(allBeer, {method: "GET"})
@@ -12,7 +11,6 @@ fetch(allBeer, {method: "GET"})
 .then(data => {
   // console.log(beerList);
   data.forEach( function (beer) {
-    beerArray.push(beer)
     beerList.innerHTML += `<li class="list-group-item" id = '${beer.id}'>${beer.name}</li>`
   })//end of forEach
 })//end of first fetch
@@ -39,19 +37,20 @@ beerList.addEventListener('click', function (e) {
 //edit beer description
 
 beerDetial.addEventListener('click', function (e) {
-  let clickSaveId = e.target.innerText
+  let editingTag = document.querySelector('textarea')
+  console.log(editingTag.innerText);
   const saveBtn = document.querySelector('#edit-beer')
-  console.log(saveBtn);
+  // console.log(saveBtn);
   fetch(`http://localhost:3000/beers/${e.target.id}`, {
     method: "PATCH",
     headers:{
             'Content-Type': 'application/json',
             'Accept': 'application/json'
             },
-    body: JSON.stringify({description: clickSaveId.value})
+    body: JSON.stringify({description: editingTag.innerText.value})
 })
   if (e.target.className == "btn btn-info") {
-    return clickSaveContent.value 
+     editingTag.innerText.save()
   }
   // console.log(e.target.id);
 })
